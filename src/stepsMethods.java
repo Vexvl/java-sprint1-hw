@@ -1,7 +1,8 @@
 public class stepsMethods {
     int[][] totalSteps;
     int sumSteps;
-    int dayRow = 0;
+    int dayRow=0;
+    int maxRow;
     int maxSteps = 0;
     int goalSteps = 10000;
     Converter converter = new Converter();
@@ -33,12 +34,19 @@ public class stepsMethods {
         System.out.println("Вы прошли дистанцию в " + converter.countDistance(sumSteps) + " км");
         System.out.println("Вы сожгли " + converter.countCal(sumSteps) + " килокалорий");
 
-        for (int i = 0; i < 29; i++){
-            if (totalSteps[monthNumber][i]>=goalSteps && totalSteps[monthNumber][(i+1)]>=goalSteps) {
-             dayRow = dayRow + 1;
+        for (int i = 0; i < 29; i++) {
+            if (totalSteps[monthNumber][i]>=goalSteps){
+                dayRow = dayRow + 1;
+                maxRow=dayRow;
+            }
+            else {
+                if (maxRow<dayRow){
+                    maxRow=dayRow;
+                }
+                else dayRow=0;
             }
         }
-        System.out.println("Ваша лучшая серия: " + dayRow + " дней(день)");
+        System.out.println("Ваша лучшая серия: " + maxRow + " дней(день)");
     }
     void changeGoalSteps(int inputGoal){
         goalSteps = inputGoal;
