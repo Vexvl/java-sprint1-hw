@@ -1,9 +1,9 @@
-
 import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        stepsMethods stepsWhole = new stepsMethods();
+        StepTracker stepsWhole = new StepTracker();
         while (true) {
             showMenu();
             int command = scanner.nextInt();
@@ -14,11 +14,11 @@ public class Main {
                     int inputDay = scanner.nextInt();
                     System.out.println("Введите количество шагов");
                     int inputSteps = scanner.nextInt();
-                    stepsWhole.saveSteps(inputMonth, (inputDay-1), inputSteps);
+                    stepsWhole.saveSteps((inputMonth-1), (inputDay-1), inputSteps);
             } else if (command == 2) {
                 System.out.println("Введите номер месяца");
                 int monthNumber = scanner.nextInt();
-                stepsWhole.showStat(monthNumber);
+                stepsWhole.showStat(monthNumber-1);
             } else if (command == 3) {
                 System.out.println("Введите целевое количество шагов");
                 int inputGoal = scanner.nextInt();
@@ -33,6 +33,7 @@ public class Main {
             }
         }
     }
+
     public static void showMenu() {
         System.out.println("Пользовательское меню: ");
         System.out.println("1. Ввести количество шагов за определённый день");

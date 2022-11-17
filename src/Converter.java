@@ -1,11 +1,10 @@
 public class Converter {
 
-    double countDistance(int sumSteps){
-        double totalDistance = sumSteps * 75/100000;
-        return totalDistance;
+    double countDistance(int sumSteps) {
+        return sumSteps * 75 / 100000;
     }
-    double countCal(int sumSteps){
-        double burntCal = sumSteps * 50/1000;
-        return burntCal;
+
+    double countCal(int sumSteps) {
+        return sumSteps * 50 / 1000;
     }
 }
